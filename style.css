@@ -1,0 +1,313 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+:root{
+    --main-color:white;
+    --background:  #7b6ada;
+    --transition:0.5s;
+    --border-radius: 18px;
+}
+
+header{
+    background-image: url(image/banner-item-01.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+header .container #logo{
+    color: white;
+    text-transform: uppercase;
+}
+header .container #toggle , label{
+    display: none;
+}
+header .container .list{
+    display: flex;
+    align-items: center;
+}
+header .container .list li{
+    margin: 10px;
+    position: relative;
+}
+header .container .list li::after{
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background-color: var(--background);
+    transition: var(--transition);
+}
+header .container .list li:hover::after{
+    width: 100%;
+}
+header .container .list li a{
+    color: white;
+}
+header .container .list li a:hover{
+    transition: var(--transition);
+    color: var(--background);
+}
+
+@media (max-width:767px) {
+    .menu{
+        background-color: #666 ;
+        border-radius: var(--border-radius);
+        width: 100%;
+        display: none;
+    }
+    .list{
+        flex-direction: column;
+    }
+    label{
+        display: block;
+        color: var(--main-color);
+    }
+    #toggle:checked ~ .menu{
+        display: block;
+    }
+}
+/* end container */
+/* start content */
+.content{
+    width: 35%;
+    margin: 120px;
+    color: var(--main-color);
+}
+.content h1{
+    margin-bottom: 25px;
+}
+.content p{
+    margin-bottom: 25px;
+}
+.content .details {
+ display: flex;
+ align-items: center;
+ gap: 20px;
+}
+.content .details button{
+    border: none;
+    padding: 10px;
+    border-radius: 14px;
+    color: var(--background);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.content .details button:hover{
+    background-color: var(--background);
+    color: var(--main-color);
+}
+.content .details span{
+    background: var(--main-color);
+    color: var(--background);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* end header */
+/* start services */
+section{
+    background-color: var(--main-color);
+    padding: 20px;
+}
+section .title{
+    border: 1px solid var(--background);
+    color: var(--background);
+    width: fit-content;
+    padding: 10px;
+    margin: auto;
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+}
+section .title::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #7b6ada4d;
+    transition: var(--transition);
+    z-index: -999;
+}
+section .title:hover::after{
+    width: 100%;
+}
+section .services .boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 80%;
+    margin: auto;
+}
+section .services .boxes .box{
+    background-color: #F1F0FE;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: var(--border-radius);
+    position: relative;
+}
+section .services .boxes .box span{
+    background-color: var(--background);
+    color: var(--main-color);
+    padding: 20px;
+    border-radius: 50%;
+    font-size: 25px;
+    position: absolute;
+    top: -20px;
+    right: 3px;
+}
+section .services .boxes .box h1{
+    font-size: 30px;
+    margin: 20px 0;
+}
+section .services .boxes .box p{
+    font-size: 20px;
+    margin: 20px 0;
+}
+section .services .boxes .box button{
+    border: none;
+    border-radius: 14px;
+    background-color: var(--main-color);
+    color: var(--background);
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+section .boxes .box button:hover{
+    background-color: var(--background);
+    color: var(--main-color);
+    transition: var(--transition);
+}
+/* end services */
+/* start courses */
+.courses{
+    width: 80%;
+    margin:20px auto;
+}
+.courses h1{
+
+    border-bottom: 3px solid var(--background);
+    width: fit-content;
+    margin: auto;
+    padding: 5px 0;
+}
+.courses .details{
+    background: #F1F0FE;
+    width: fit-content;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 35px;
+    display: flex;
+    flex-wrap: wrap;
+ 
+}
+.courses .details span{
+    margin: 20px ;
+}
+.courses .boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px , 1fr));
+    gap: 20px;
+}
+.courses .boxes .box{
+    background-color: #F1F0FE;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.courses .boxes .box span{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--background);
+    background-color: var(--main-color);
+    padding: 15px;
+    border-radius: 14px;
+}
+.courses .boxes .box .price{
+    position: absolute;
+    top: -15px;
+    left: 75%;
+    width: fit-content;
+    padding: 30px;
+    border-radius: 50%;
+    background-color: var(--background);
+    color: var(--main-color);
+    font-size: 22px;
+    text-align: center;
+}
+.courses .boxes .box:hover .price{
+    transform: scale(1.3);
+    transition: var(--transition);
+}
+.courses .boxes .box h2:hover{
+    color: var(--background);
+    transition:var(--transition);
+}
+.courses .boxes .box h3{
+    color: var(--background);
+}
+.courses .boxes .box h2, h3{
+    padding: 10px;
+    margin: 5px;
+}
+
+/* end courses */
+/* start footer */
+footer{
+    background-color: var(--background);
+    color: var(--main-color);
+}
+footer .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    flex-wrap:wrap ;
+    width: 80%;
+    margin: auto;
+}
+footer #logo{
+    text-transform: uppercase;
+}
+footer .list{
+    display: flex;
+    align-items: center;
+    flex-wrap:wrap ;
+    gap: 20px;
+}
+footer .list a{
+    color: var(--main-color);
+    font-size: large;
+}
+footer .contact span{
+    margin: 10px;
+}
+footer .copyright{
+    text-align: center;
+    border-top: 3px solid var(--main-color) ;
+    width: 80%;
+    margin:  auto;
+    padding: 10px;
+}
+/* end footer */
+
